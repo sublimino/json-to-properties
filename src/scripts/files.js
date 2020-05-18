@@ -140,7 +140,7 @@ exports.writeAsProperties = function (dir, file, entries) {
     });
 
     entries.forEach(function (entry) {
-        writeStream.write(entry.concat('\n'));
+        writeStream.write(entry.replace(/\n/g, '\\n').concat('\n\n'));
     });
     writeStream.end(); // Close the write stream
 };
